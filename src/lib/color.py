@@ -96,7 +96,3 @@ def grade_saturation(tuple_color_rgb, step_size, down=True):
             step_b = 0
         list_colors.append(tuple_color_rgb.get_tuple())
     return list_colors
-    
-    r, g, b = [ math.ceil((x - (x/step_size))) for x in tuple_color_rgb]
-    print(f'rgb: {r, g, b}')
-    return (r, g, b)

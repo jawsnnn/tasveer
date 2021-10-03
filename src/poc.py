@@ -28,9 +28,4 @@ for i in range(640):
     end_y = start_y + circle_diameter
     end_x = start_x + circle_diameter
     draw.arc(xy=(start_x, start_y, end_x, end_y), start = 0, end = 360, fill = list_colors[i], width = 2)
-    # fill_color = change_saturation(fill_color, step_size = 640, increase=False)
-    if fill_color == (0,0,0):
-        break
-    # if i > 10:
-    #     break
 img.show()
