@@ -63,12 +63,15 @@ def complementary_color(tuple_color_rgb):
     r, g, b = [int(x*255) for x in colorsys.hls_to_rgb(hue, lum, sat)]
     return (r, g, b)
 
-def grade_saturation(tuple_color_rgb, step_size, down=True):
+def grade_saturation(tuple_color_rgb, step_size, channels=('r', 'g', 'b'), down=True):
     '''
     Changes saturation of original RGB color by step size
     '''
     # Calculate integer steps for each value
     tuple_color_rgb = ColorTuple(tuple_color_rgb)
+    bool_r = 'r' in channels
+    bool_g = 'g' in channels
+    bool_b = 'b' in channels
     if down:
         step = -1
         step_size_r = int(1/(tuple_color_rgb[0]/step_size))
@@ -86,13 +89,16 @@ def grade_saturation(tuple_color_rgb, step_size, down=True):
         step_g += 1
         step_b += 1
         if step_r == step_size_r:
-            tuple_color_rgb = tuple_color_rgb + (step, 0, 0)
+            if bool_r:
+                tuple_color_rgb = tuple_color_rgb + (step, 0, 0)
             step_r = 0
         if step_g == step_size_g:
-            tuple_color_rgb = tuple_color_rgb + (0, step, 0)
+            if bool_g:
+                tuple_color_rgb = tuple_color_rgb + (0, step, 0)
             step_g = 0
         if step_b == step_size_b:
-            tuple_color_rgb = tuple_color_rgb + (0, 0, step)
+            if bool_b:
+                tuple_color_rgb = tuple_color_rgb + (0, 0, step)
             step_b = 0
         list_colors.append(tuple_color_rgb.get_tuple())
     return list_colors

@@ -16,7 +16,7 @@ circle_diameter = int(width/2)
 circle_radius = int(circle_diameter/2)
 print(fill_color)
 print(circle_radius)
-list_colors = grade_saturation(fill_color, 640, down=True)
+list_colors = grade_saturation(fill_color, 640, down=False, channels = ())
 count=0
 for i in list_colors:
     count += 1
