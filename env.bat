@@ -1,0 +1,1 @@
+tasveer-env\Scripts\activate.bat
